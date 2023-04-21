@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  tel: MyString
+  address: MyString
+  dob: 2023-04-21
+  user: one
+
+two:
+  tel: MyString
+  address: MyString
+  dob: 2023-04-21
+  user: two
