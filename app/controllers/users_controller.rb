@@ -1,8 +1,9 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: %i[ show edit update destroy ]
+  before_action :set_user, only: %i[ edit update destroy ]
 
   # GET /users/1 or /users/1.json
   def show
+    @user = User.includes(:profile).where(profile: {user_id: params[:id]}).first
   end
 
   # GET /users/1/edit
