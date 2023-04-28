@@ -1,13 +1,9 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: %i[ edit update destroy ]
+  before_action :set_user, only: %i[ update destroy ]
 
   # GET /users/1 or /users/1.json
   def show
     @user = User.includes(:profile).where(profile: {user_id: params[:id]}).first
-  end
-
-  # GET /users/1/edit
-  def edit
   end
 
   # PATCH/PUT /users/1 or /users/1.json
@@ -39,8 +35,7 @@ class UsersController < ApplicationController
       @user = User.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
     def user_params
-      params.fetch(:user, {})
+      params.require(:user).permit(:email, :name, profile_attributes: [:id, :tel, :address, :dob])
     end
 end
