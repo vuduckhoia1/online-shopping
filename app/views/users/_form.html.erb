@@ -10,8 +10,21 @@
       </ul>
     </div>
   <% end %>
-
-  <div>
-    <%= form.submit %>
+  <div class="col-md-5 border-right">
+    <div class="p-3 py-5">
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <h4 class="text-right">Profile Settings</h4>
+      </div>
+      <div class="row mt-3">
+        <div class="col-md-12"><%= form.label :email, class: 'labels' %><%= form.text_field :email, class: 'form-control', placeholder: 'Enter email' %></div>
+        <div class="col-md-12"><%= form.label :name, class: 'labels' %><%= form.text_field :name, class: 'form-control', placeholder: 'Enter your name' %></div>
+        <%= form.fields_for :profile do |f| %>
+          <div class="col-md-12"><%= f.label :tel, class: 'labels' %><%= f.text_field :tel, class: 'form-control', placeholder: 'Enter phone number' %></div>
+          <div class="col-md-12"><%= f.label :address, class: 'labels' %><%= f.text_field :address, class: 'form-control', placeholder: 'Enter address' %></div>
+          <div class="col-md-12"><%= f.label 'Date of birth', class: 'labels' %><%= f.date_field :dob, class: 'form-control', placeholder: 'Enter your birthday' %></div>
+        <% end %>
+      </div>
+      <div class="mt-5 text-center"><%= form.submit 'Save Profile', class: 'btn btn-primary profile-button' %></div>
+    </div>
   </div>
 <% end %>
