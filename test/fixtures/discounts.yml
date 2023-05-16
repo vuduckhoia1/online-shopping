@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  value: 1.5
+  type: 1
+  day_start: 2023-05-08
+  day_end: 2023-05-08
+
+two:
+  name: MyString
+  value: 1.5
+  type: 1
+  day_start: 2023-05-08
+  day_end: 2023-05-08
