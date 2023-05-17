@@ -10,7 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_08_104332) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_17_095116) do
+  create_table "bills", charset: "utf8mb3", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "carts", charset: "utf8mb3", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
@@ -19,10 +24,20 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_08_104332) do
   end
 
   create_table "categories", charset: "utf8mb3", force: :cascade do |t|
-    t.string "type", null: false
+    t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["type"], name: "index_categories_on_type", unique: true
+    t.index ["name"], name: "index_categories_on_name", unique: true
+  end
+
+  create_table "discounts", charset: "utf8mb3", force: :cascade do |t|
+    t.string "name"
+    t.float "value"
+    t.integer "type"
+    t.date "day_start"
+    t.date "day_end"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "export_bills", charset: "utf8mb3", force: :cascade do |t|
@@ -91,14 +106,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_08_104332) do
     t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
-  create_table "suplliers", charset: "utf8mb3", force: :cascade do |t|
-    t.string "brand", null: false
-    t.string "address"
-    t.string "tel", null: false
-    t.string "email", null: false
+  create_table "shipments", charset: "utf8mb3", force: :cascade do |t|
+    t.string "brand"
+    t.string "target_address"
+    t.string "email"
+    t.float "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["brand"], name: "index_suplliers_on_brand", unique: true
   end
 
   create_table "suppliers", charset: "utf8mb3", force: :cascade do |t|
