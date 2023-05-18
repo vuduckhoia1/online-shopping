@@ -18,6 +18,8 @@ gem 'devise', '~> 4.9'
 
 gem 'bootstrap', '~> 5.2.2'
 
+gem 'will_paginate', '~> 3.3', '>= 3.3.1'
+
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
 
