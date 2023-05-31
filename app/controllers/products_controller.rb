@@ -13,7 +13,7 @@ class ProductsController < ApplicationController
   # GET /products/new
   def new
     @product = Product.new
-    @categories = Category.order(id: :asc)
+    @categories = Category.order(id: :asc).pluck(:name, :id)
   end
 
   # GET /products/1/edit

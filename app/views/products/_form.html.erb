@@ -15,11 +15,8 @@
   <div class="col-md-4"><%= form.label :price, class: 'labels' %><%= form.number_field :price, class: 'form-control', placeholder: 'Enter price', step: 0.1 %></div>
   <div class="col-md-4"><%= form.label :des, class: 'labels' %><%= form.text_area :des, class: 'form-control', placeholder: 'Enter description' %></div>
   <div class="col-md-4">
-    <select name="category_id">
-      <% @categories.each do |category| %>
-        <option value="<%= category.id %>"><%= category.name %></option>
-      <% end %>
-    </select>
+    <%= form.label :category_id, class: 'labels' %>
+    <%= select :product, :category_id, categories, { include_blank: true } %>
   </div>
 
   <div>

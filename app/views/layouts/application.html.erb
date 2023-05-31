@@ -12,8 +12,17 @@
   </head>
 
   <body>
-    <%= yield %>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <% if user_signed_in? %>
+      <%= render("partials/navbar") %>
+      <%= render("partials/sidebar") %>
+    <% end %>
+    <div class="content">
+      <%= yield %>
+    </div>
+    <div class="notifycation">
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+    </div>
   </body>
 </html>
+<%= javascript_include_tag 'users/index.js' %>
